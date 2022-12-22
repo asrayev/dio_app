@@ -8,14 +8,14 @@ import '../data/repository/category_repository.dart';
 import '../data/repository/product_repository.dart';
 
 class DynamicViewModel extends ChangeNotifier{
-  List<DynamicModel>? categoryModel;
+  DynamicModel? categoryModel ;
   DynamicRepository dynamicRepository;
 
   DynamicViewModel({required this.dynamicRepository});
 
 
   fetchCategory()async{
-    categoryModel = await dynamicRepository.getMyProduct() as List<DynamicModel>;
+    categoryModel = await dynamicRepository.getMyProduct() as DynamicModel;
     notifyListeners();
   }
 

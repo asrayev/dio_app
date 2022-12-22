@@ -42,7 +42,7 @@ class CategoryPage extends StatelessWidget {
               color: Color(0xFF2B2B2B),
               child: ListView.builder(
                   physics: BouncingScrollPhysics(),
-                  itemCount: datalist!.length,
+                  itemCount: datalist!.fields!.length,
 
                   itemBuilder: (context, index){
                     return Padding(
@@ -63,13 +63,13 @@ class CategoryPage extends StatelessWidget {
                               Container(
                                   height: 50,
                                   width: 50,
-                                  child: Image.network(datalist[index].fields![0].type.toString(),height: 20,width: 20, )),
+                                  child: Image.network(datalist.fields![index].type.toString(),height: 20,width: 20, )),
 
                               Column(
                                 children: [
                                   SizedBox(height: 15,),
-                                  Text("${datalist[index].fields![0].initialValue}", style: TextStyle(color: Colors.white),),
-                                  Text("name: ${datalist[index].fields![0].sort}", style: TextStyle(color: Colors.white),),
+                                  Text("${datalist.fields![index].initialValue}", style: TextStyle(color: Colors.white),),
+                                  Text("name: ${datalist.fields![index].sort}", style: TextStyle(color: Colors.white),),
                                 ],
                               )
                             ],
