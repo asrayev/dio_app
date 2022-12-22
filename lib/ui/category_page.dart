@@ -9,7 +9,7 @@ class CategoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Consumer<CategoryViewModel>(
+      body: Consumer<DynamicViewModel>(
         builder: (context, viewModel, child){
           if(viewModel.categoryModel == null){
             return Column(
@@ -20,7 +20,7 @@ class CategoryPage extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: ((){
-                    context.read<CategoryViewModel>().fetchCategory();
+                    context.read<DynamicViewModel>().fetchCategory();
                   }),
                   child: Container(
                     height: 40,
@@ -63,13 +63,13 @@ class CategoryPage extends StatelessWidget {
                               Container(
                                   height: 50,
                                   width: 50,
-                                  child: Image.network(datalist[index].imageUrl.toString(),height: 20,width: 20, )),
+                                  child: Image.network(datalist[index].fields![0].type.toString(),height: 20,width: 20, )),
 
                               Column(
                                 children: [
                                   SizedBox(height: 15,),
-                                  Text("id: ${datalist[index].id}", style: TextStyle(color: Colors.white),),
-                                  Text("name: ${datalist[index].name}", style: TextStyle(color: Colors.white),),
+                                  Text("${datalist[index].fields![0].initialValue}", style: TextStyle(color: Colors.white),),
+                                  Text("name: ${datalist[index].fields![0].sort}", style: TextStyle(color: Colors.white),),
                                 ],
                               )
                             ],

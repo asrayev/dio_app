@@ -1,7 +1,10 @@
 import 'package:dio_app/ui/income_page.dart';
 import 'package:dio_app/ui/transfer_page.dart';
+import 'package:dio_app/ui/upload_image.dart';
 import 'package:dio_app/ui/veb_page.dart';
 import 'package:flutter/material.dart';
+
+import 'category_page.dart';
 
 class MainiPage extends StatelessWidget {
   const MainiPage({Key? key}) : super(key: key);
@@ -14,9 +17,10 @@ class MainiPage extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
+              SizedBox(height: 300,),
               InkWell(
                 onTap: ((){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>IncomePage()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>UploadFileToServer()));
                 }),
                 child: Container(
                   height: 70,
@@ -30,14 +34,14 @@ class MainiPage extends StatelessWidget {
               SizedBox(height: 20,),
               InkWell(
                 onTap: ((){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>TransferPage()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>CategoryPage()));
                 }),
                 child: Container(
                   height: 70,
                   width: 300,
                   color: Colors.green,
                   child: Center(
-                    child: Text("Transfer page", style: TextStyle(color: Colors.white),),
+                    child: Text("Dynamic", style: TextStyle(color: Colors.white),),
                   ),
                 ),
               ),

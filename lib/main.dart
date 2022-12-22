@@ -1,5 +1,6 @@
 import 'package:dio_app/data/repository/Income_repository.dart';
 import 'package:dio_app/data/repository/category_repository.dart';
+import 'package:dio_app/data/repository/dynamic-repository.dart';
 import 'package:dio_app/data/repository/product_repository.dart';
 import 'package:dio_app/data/repository/transfer_repository.dart';
 import 'package:dio_app/data/service/api_service.dart';
@@ -21,12 +22,12 @@ void main() async{
 
        MultiProvider(
             providers: [
-              ChangeNotifierProvider(create: (context) => ProductViewModel(productRepository: ProductRepository(apiService: ApiService()))),
-              ChangeNotifierProvider(create: (context) => CategoryViewModel(categoryRepository: CategoryRepository(apiService: ApiService()))),
-
-              ChangeNotifierProvider(create: (context) => TransferViewModel(transferRepository: TransferRepository(apiService: ApiService()))),
-
-              ChangeNotifierProvider(create: (context) => IncomeViewModel(incomeRepository: IncomeRepository(apiService: ApiService()))),
+              ChangeNotifierProvider(create: (context) => DynamicViewModel(dynamicRepository: DynamicRepository(apiService: ApiService()))),
+              // ChangeNotifierProvider(create: (context) => CategoryViewModel(categoryRepository: CategoryRepository(apiService: ApiService()))),
+              //
+              // ChangeNotifierProvider(create: (context) => TransferViewModel(transferRepository: TransferRepository(apiService: ApiService()))),
+              //
+              // ChangeNotifierProvider(create: (context) => IncomeViewModel(incomeRepository: IncomeRepository(apiService: ApiService()))),
             ],
             child:  MyApp()),
       );
